@@ -11,4 +11,4 @@ Object.prototype.toString = function() {
 
 let redCar = new Car('red');
 console.log(redCar.getColor());
-console.log(redCar.toString());
+// console.log(redCar.toString());
