@@ -39,4 +39,4 @@ const chargingStation = {
 
 console.log(chargingStation.robotCapacity);
 chargingStation.robotCapacity = 187;
-console.log(chargingStation.robotCapacity);
+// console.log(chargingStation.robotCapacity);
