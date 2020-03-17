@@ -1,7 +1,16 @@
-const inventory = {
-  sunglasses: 1900,
-  pants: 1088,
-  bags: 1344
+const store = {
+  sunglasses: {
+    inventory: 817,
+    cost: 9.99
+  },
+  pants: {
+    inventory: 236,
+    cost: 7.99
+  },
+  bags: {
+    inventory: 17,
+    cost: 12.99
+  }
 };
 
 const checkInventory = order => {
