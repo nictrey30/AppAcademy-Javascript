@@ -52,6 +52,17 @@ const processPayment = responseArray => {
     }, generateRandomDelay());
   });
 };
+const shipOrder = responseArray => {
+  const order = responseArray[0];
+  const trackingNum = responseArray[1];
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(
+        `The order has been shipped. The tracking number is: ${trackingNum}.`
+      );
+    }, generateRandomDelay());
+  });
+};
 function generateTrackingNumber() {
   return Math.floor(Math.random() * 1000000);
 }

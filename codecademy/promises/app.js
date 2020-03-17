@@ -1,4 +1,4 @@
-const checkInventory = require('./library.js');
+const { checkInventory, processPayment, shipOrder } = require('./library.js');
 
 const order = {
   items: [
@@ -9,5 +9,7 @@ const order = {
 };
 
 checkInventory(order)
+  .then(dataArr => processPayment(dataArr))
+  .then(dataArr => shipOrder(dataArr))
   .then(data => console.log(data))
   .catch(err => console.log(err));
