@@ -63,10 +63,36 @@ const shipOrder = responseArray => {
     }, generateRandomDelay());
   });
 };
+
+const checkAvailability = (itemName, distributorName) => {
+  console.log(`Checking availability of ${itemName} at ${distributorName}...`);
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (restockSuccess()) {
+        console.log(`----> ${itemName} are in stock at ${distributorName}`);
+        resolve(itemName);
+      } else {
+        reject(
+          `Error: ${itemName} is unavailable from ${distributorName} at this time.`
+        );
+      }
+    }, 1500);
+  });
+};
+
 function generateTrackingNumber() {
   return Math.floor(Math.random() * 1000000);
 }
 function generateRandomDelay() {
   return Math.floor(Math.random() * 2000);
 }
-module.exports = { checkInventory, processPayment, shipOrder };
+// This is a function that returns true 80% of the time - aka simulate a req to the distributor
+function restockSuccess() {
+  return Math.random() > 0.2;
+}
+module.exports = {
+  checkInventory,
+  processPayment,
+  shipOrder,
+  checkAvailability
+};
